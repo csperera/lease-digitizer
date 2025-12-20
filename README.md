@@ -1,4 +1,4 @@
- # Lease Digitizer
+ # Lease Digitizer v1.0 Beta
 
 **AI-Powered Commercial Lease Intelligence Platform**
 

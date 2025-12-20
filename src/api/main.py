@@ -211,7 +211,8 @@ async def batch_extract(request: BatchExtractionRequest):
     errors = []
 
     for item in request.leases:
-        text = item.get("document_text")
+        # Check for various common field names for flexibility
+        text = item.get("document_text") or item.get("content") or item.get("text")
         filename = item.get("filename", "unknown")
         
         if not text:
@@ -237,7 +238,7 @@ async def batch_extract(request: BatchExtractionRequest):
                 lease_ids.append(lease_id)
             else:
                 failed += 1
-                errors.append(f"Values extraction failed for {filename}")
+                errors.append(f"Values extraction failed for {filename}. Raw: {str(result.raw_response)[:500]}")
 
         except Exception as e:
             failed += 1

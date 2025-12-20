@@ -214,7 +214,7 @@ class Lease(BaseModel):
     """
     
     # Document identification
-    document_id: str = Field(..., description="Unique document identifier")
+    document_id: str = Field(default="pending", description="Unique document identifier")
     lease_type: Optional[LeaseType] = Field(default=None, description="Type of lease")
     execution_date: Optional[date] = Field(default=None, description="Lease execution date")
     
@@ -251,6 +251,24 @@ class Lease(BaseModel):
     # Assignments and Subletting
     assignment_allowed: Optional[bool] = Field(default=None, description="Assignment permitted")
     subletting_allowed: Optional[bool] = Field(default=None, description="Subletting permitted")
+    
+    # Lease Terms - Additional fields
+    notice_period_expiry: Optional[str] = Field(default=None, description="Notice period before lease expiration")
+    type_of_term: Optional[str] = Field(default=None, description="Type of term (Fixed, Month-to-Month, etc.)")
+    type_of_space: Optional[str] = Field(default=None, description="Type of space (Office, Retail, Industrial, etc.)")
+    renewal_option: Optional[bool] = Field(default=None, description="Whether renewal option exists")
+    termination_clause: Optional[bool] = Field(default=None, description="Whether termination clause exists")
+    notice_period_default: Optional[str] = Field(default=None, description="Notice period for termination due to default")
+    notice_period_covenants: Optional[str] = Field(default=None, description="Notice period for breaking covenants")
+    
+    # Financial - Parking
+    parking_charges: Optional[Decimal] = Field(default=None, ge=0, description="Annual parking charges")
+    
+    # Property - Parking
+    parking_spaces: Optional[int] = Field(default=None, ge=0, description="Number of parking spaces")
+    
+    # Lease Summary
+    lease_summary: Optional[str] = Field(default=None, description="AI-generated lease summary (max 150 words)")
     
     # Extraction metadata
     extracted_clauses: dict[str, str] = Field(default_factory=dict, description="Key clauses")

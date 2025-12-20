@@ -85,6 +85,20 @@ IMPORTANT RULES FOR NESTED OBJECTS:
 - For lease_type: if unknown, use "net" as default
 - For property_use_type: if unknown, use "office" as default
 
+ADDITIONAL EXTRACTION REQUIREMENTS:
+8. For notice periods (notice_period_expiry, notice_period_default, notice_period_covenants): 
+   Extract as strings like "30 days", "60 days", "90 days"
+9. For type_of_term: Look for Fixed, Month-to-Month, Option to Renew, or similar terms
+10. For type_of_space: Look for Office, Retail, Industrial, Medical, Mixed-Use
+11. For renewal_option and termination_clause: Extract as boolean (true/false) - true if clause exists
+12. For parking_charges: Extract annual parking fee amount (numeric, without currency symbols)
+13. For parking_spaces: Extract number of parking spaces allocated to tenant (integer)
+14. For lease_summary: Generate a concise 150-word summary highlighting:
+    - Key lease terms and business points
+    - Notable clauses or provisions
+    - Critical dates and financial terms
+    - What a property manager needs to know at a glance
+
 {format_instructions}
 
 LEASE DOCUMENT:

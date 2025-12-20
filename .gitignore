@@ -143,3 +143,22 @@ desktop.ini
 # -----------------------------------------------------------------------------
 *.manifest
 *.spec
+# Add to existing .gitignore
+cat >> .gitignore << 'EOF'
+
+# -----------------------------------------------------------------------------
+# Temporary Development Files (Pre-AWS Textract)
+# -----------------------------------------------------------------------------
+deletebin/
+debug_batch_error.py
+cleanup_to_deletebin.py
+upload_single_lease.py
+upload_single_lease_port8001.py
+
+# -----------------------------------------------------------------------------
+# AWS Textract Processing
+# -----------------------------------------------------------------------------
+textract_output/
+*.txt
+
+EOF
