@@ -6,7 +6,7 @@ A production-grade full-stack application that uses LangChain multi-agent archit
 
 ## 🎯 Overview
 
-Lease Digitizer solves a critical pain point in commercial real estate: property managers have filing cabinets full of paper leases that have never been digitized, often with multiple versions (base leases, amendments, riders) creating operational inefficiencies. This system automates lease abstraction using AI, reducing processing time from 4-8 hours per lease to under 15 seconds.
+Lease Librarian solves a critical pain point in commercial real estate: property managers have filing cabinets full of paper leases that have never been digitized, often with multiple versions (base leases, amendments, riders) creating operational inefficiencies. This system automates lease abstraction using AI, reducing processing time from 4-8 hours per lease to under 15 seconds.
 
 ## 🏗️ Architecture
 
