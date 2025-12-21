@@ -91,6 +91,7 @@ class LeaseStorage:
             "landlord": landlord_name,
             "monthly_rent": rent,
             "lease_type": lease.lease_type.value if lease.lease_type else None,
+            "lease_summary": lease.lease_summary,
             "extracted_at": datetime.now().isoformat(),
             "full_lease_data": lease.model_dump(mode='json')  # Pydantic v2 serialization
         }
@@ -139,6 +140,7 @@ class LeaseStorage:
                 "landlord": entry.get("landlord"),
                 "monthly_rent": entry.get("monthly_rent"),
                 "lease_type": entry.get("lease_type"),
+                "lease_summary": entry.get("lease_summary"),
                 "extracted_at": entry.get("extracted_at")
             })
         return previews

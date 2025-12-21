@@ -180,7 +180,7 @@ MIT License - See LICENSE file for details
 ## 👤 Author
 
 **Christian Perera**
-- Commercial real estate appraisal experience transitioning to ML Engineering
+- AI/ML Engineer | Data Scientist | PropTech Specialist | Ex-Commercial RE Appraiser | Specializing in Agentic AI Systems for Real Estate Intelligence | Open to USA Opportunities (TN Visa Ready)
 - PropTech specialization
 - [LinkedIn](https://www.linkedin.com/in/christianperera/)
 - [GitHub](https://github.com/csperera)

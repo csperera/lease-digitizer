@@ -1,27 +1,34 @@
 {
-  "100_innovation_dr.pdf": {
-    "id": "100_innovation_dr.pdf",
-    "property_address": "100 Innovation Drive, Dallas, TX",
-    "tenant": "Tech Startup Inc",
-    "landlord": "ABC Properties LLC",
-    "monthly_rent": 7500.0,
-    "lease_type": "triple_net",
-    "extracted_at": "2025-12-17T15:59:32.480987",
+  "GS-11P-LDC00100": {
+    "id": "GS-11P-LDC00100",
+    "property_address": "45 L Street, NE, Washington, DC",
+    "tenant": "The United States of America",
+    "landlord": "Sentinel Square III, LLC",
+    "monthly_rent": 403788.82,
+    "lease_type": "net",
+    "lease_summary": "This lease is between Sentinel Square III, LLC and The United States of America for an office space of 85,000 RSF located at 45 L Street, NE, Washington, DC. The lease term is 10 years, commencing on June 1, 2015, and expiring on May 29, 2025. The annual rent is $4,845,465.80, with monthly payments of $403,788.82. The lease includes a renewal option for one additional 5-year term. The Government has the right to terminate the lease for convenience. The lease also includes provisions for operating expenses and parking for 42 reserved spaces at $350 per space per month.",
+    "extracted_at": "2025-12-20T10:30:26.391426",
     "full_lease_data": {
-      "document_id": "100_innovation_dr.pdf",
-      "lease_type": "triple_net",
+      "document_id": "GS-11P-LDC00100",
+      "lease_type": "net",
       "execution_date": null,
       "landlord": {
-        "legal_name": "ABC Properties LLC",
-        "entity_type": null,
-        "address": null,
+        "legal_name": "Sentinel Square III, LLC",
+        "entity_type": "LLC",
+        "address": {
+          "street_address": "c/o Sentinel Square III",
+          "city": "Washington",
+          "state": "DC",
+          "zip_code": "20002",
+          "country": "US"
+        },
         "contact_name": null,
         "contact_email": null,
         "contact_phone": null
       },
       "tenant": {
-        "legal_name": "Tech Startup Inc",
-        "entity_type": null,
+        "legal_name": "The United States of America",
+        "entity_type": "Government",
         "address": null,
         "contact_name": null,
         "contact_email": null,
@@ -29,56 +36,957 @@
       },
       "guarantors": [],
       "property_address": {
-        "street_address": "100 Innovation Drive",
-        "city": "Dallas",
-        "state": "TX",
-        "zip_code": "75201",
+        "street_address": "45 L Street, NE",
+        "city": "Washington",
+        "state": "DC",
+        "zip_code": "20002",
         "country": "US"
       },
-      "rentable_square_feet": "3000",
-      "usable_square_feet": null,
+      "rentable_square_feet": "85000",
+      "usable_square_feet": "76621",
       "property_use_type": "office",
-      "commencement_date": "2024-01-01",
-      "expiration_date": "2026-12-31",
-      "term_months": 36,
-      "base_rent_monthly": "7500",
-      "base_rent_annual": "90000",
-      "rent_per_sqft": "2.5",
+      "commencement_date": "2015-06-01",
+      "expiration_date": "2025-05-29",
+      "term_months": 120,
+      "base_rent_monthly": "403788.82",
+      "base_rent_annual": "4845465.8",
+      "rent_per_sqft": "57.01",
       "rent_escalations": [],
-      "security_deposit": null,
-      "operating_expenses": null,
-      "renewal_options": [],
-      "termination_rights": [],
+      "security_deposit": "1211366.45",
+      "operating_expenses": {
+        "base_year": null,
+        "base_amount": "10.01",
+        "tenant_share_percentage": null,
+        "cap_percentage": null,
+        "exclusions": null
+      },
+      "renewal_options": [
+        {
+          "option_number": 1,
+          "term_months": 60,
+          "notice_days": 180,
+          "rent_determination": null
+        }
+      ],
+      "termination_rights": [
+        {
+          "party": "Government",
+          "earliest_date": null,
+          "notice_days": 180,
+          "termination_fee": null,
+          "conditions": "Right to terminate for convenience"
+        }
+      ],
       "assignment_allowed": null,
       "subletting_allowed": null,
+      "notice_period_expiry": null,
+      "type_of_term": "Fixed",
+      "type_of_space": "Office",
+      "renewal_option": true,
+      "termination_clause": true,
+      "notice_period_default": null,
+      "notice_period_covenants": null,
+      "parking_charges": "4200",
+      "parking_spaces": 42,
+      "lease_summary": "This lease is between Sentinel Square III, LLC and The United States of America for an office space of 85,000 RSF located at 45 L Street, NE, Washington, DC. The lease term is 10 years, commencing on June 1, 2015, and expiring on May 29, 2025. The annual rent is $4,845,465.80, with monthly payments of $403,788.82. The lease includes a renewal option for one additional 5-year term. The Government has the right to terminate the lease for convenience. The lease also includes provisions for operating expenses and parking for 42 reserved spaces at $350 per space per month.",
+      "extracted_clauses": {
+        "Base building services included": "Yes",
+        "Tenant improvement allowance provided": "Yes",
+        "Government shall have right to terminate for convenience": "Yes",
+        "Standard government lease provisions apply": "Yes",
+        "Property meets all federal security requirements": "Yes",
+        "LEED certification": "Silver or higher",
+        "Agency-specific security requirements applicable": "Yes",
+        "Government reserves right to install telecommunications equipment": "Yes",
+        "Parking allocation subject to change based on government needs": "Yes",
+        "Space may be used for government operations and related activities": "Yes"
+      },
+      "confidence_score": 1.0,
+      "extraction_notes": []
+    }
+  },
+  "GS-11P-LDC00200": {
+    "id": "GS-11P-LDC00200",
+    "property_address": "1800 F Street, NW, Washington, DC",
+    "tenant": "The United States of America",
+    "landlord": "Federal Realty Investment Trust",
+    "monthly_rent": 515752.36,
+    "lease_type": "net",
+    "lease_summary": "This lease is between Federal Realty Investment Trust and The United States of America for a federal office building located at 1800 F Street, NW, Washington, DC. The lease term is 15 years, commencing on January 1, 2015, and expiring on December 28, 2029. The annual rent is $6,189,028.31, with a monthly rent of $515,752.36. The lease includes two 5-year renewal options and a security deposit of $1,547,257.08. The tenant is allocated 67 reserved parking spaces at $375.00 per space per month. The lease allows for termination for convenience by the government and includes standard government lease provisions.",
+    "extracted_at": "2025-12-20T10:30:50.012206",
+    "full_lease_data": {
+      "document_id": "GS-11P-LDC00200",
+      "lease_type": "net",
+      "execution_date": null,
+      "landlord": {
+        "legal_name": "Federal Realty Investment Trust",
+        "entity_type": null,
+        "address": {
+          "street_address": "c/o GSA Headquarters",
+          "city": "Washington",
+          "state": "DC",
+          "zip_code": "20405",
+          "country": "US"
+        },
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "tenant": {
+        "legal_name": "The United States of America",
+        "entity_type": "Government",
+        "address": null,
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "guarantors": [],
+      "property_address": {
+        "street_address": "1800 F Street, NW",
+        "city": "Washington",
+        "state": "DC",
+        "zip_code": "20405",
+        "country": "US"
+      },
+      "rentable_square_feet": "125000",
+      "usable_square_feet": "106753",
+      "property_use_type": "office",
+      "commencement_date": "2015-01-01",
+      "expiration_date": "2029-12-28",
+      "term_months": 180,
+      "base_rent_monthly": "515752.36",
+      "base_rent_annual": "6189028.31",
+      "rent_per_sqft": "49.51",
+      "rent_escalations": [],
+      "security_deposit": "1547257.08",
+      "operating_expenses": {
+        "base_year": null,
+        "base_amount": "12.44",
+        "tenant_share_percentage": null,
+        "cap_percentage": null,
+        "exclusions": null
+      },
+      "renewal_options": [
+        {
+          "option_number": 1,
+          "term_months": 60,
+          "notice_days": 180,
+          "rent_determination": null
+        },
+        {
+          "option_number": 2,
+          "term_months": 60,
+          "notice_days": 180,
+          "rent_determination": null
+        }
+      ],
+      "termination_rights": [
+        {
+          "party": "Government",
+          "earliest_date": null,
+          "notice_days": 180,
+          "termination_fee": null,
+          "conditions": "for convenience"
+        }
+      ],
+      "assignment_allowed": null,
+      "subletting_allowed": null,
+      "notice_period_expiry": null,
+      "type_of_term": "Fixed",
+      "type_of_space": "office",
+      "renewal_option": true,
+      "termination_clause": true,
+      "notice_period_default": null,
+      "notice_period_covenants": null,
+      "parking_charges": "4500",
+      "parking_spaces": 67,
+      "lease_summary": "This lease is between Federal Realty Investment Trust and The United States of America for a federal office building located at 1800 F Street, NW, Washington, DC. The lease term is 15 years, commencing on January 1, 2015, and expiring on December 28, 2029. The annual rent is $6,189,028.31, with a monthly rent of $515,752.36. The lease includes two 5-year renewal options and a security deposit of $1,547,257.08. The tenant is allocated 67 reserved parking spaces at $375.00 per space per month. The lease allows for termination for convenience by the government and includes standard government lease provisions.",
+      "extracted_clauses": {
+        "Base building services included": "true",
+        "Tenant improvement allowance provided": "true",
+        "Government shall have right to terminate for convenience": "true",
+        "Standard government lease provisions apply": "true",
+        "Property meets all federal security requirements": "true",
+        "LEED certification": "Silver or higher",
+        "Agency-specific security requirements applicable": "true",
+        "Government reserves right to install telecommunications equipment": "true",
+        "Parking allocation subject to change based on government needs": "true",
+        "Space may be used for government operations and related activities": "true"
+      },
+      "confidence_score": 1.0,
+      "extraction_notes": []
+    }
+  },
+  "GS-11P-LDC00400": {
+    "id": "GS-11P-LDC00400",
+    "property_address": "1900 E Street, NW, Washington, DC",
+    "tenant": "The United States of America",
+    "landlord": "Carr Properties",
+    "monthly_rent": 856629.79,
+    "lease_type": "net",
+    "lease_summary": "This lease is between Carr Properties and The United States of America for an office building located at 1900 E Street, NW, Washington, DC. The lease term is 15 years, commencing on September 1, 2015, and expiring on August 28, 2030. The annual rent is $10,279,557.44, with a monthly rent of $856,629.79. The lease includes one 10-year renewal option and a security deposit of $2,569,889.36. The government has the right to terminate the lease for convenience. The property includes 114 reserved parking spaces at $350.00 per space per month.",
+    "extracted_at": "2025-12-20T10:31:25.366239",
+    "full_lease_data": {
+      "document_id": "GS-11P-LDC00400",
+      "lease_type": "net",
+      "execution_date": null,
+      "landlord": {
+        "legal_name": "Carr Properties",
+        "entity_type": "Lessor",
+        "address": {
+          "street_address": "c/o OPM Building",
+          "city": "Washington",
+          "state": "DC",
+          "zip_code": "20415",
+          "country": "US"
+        },
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "tenant": {
+        "legal_name": "The United States of America",
+        "entity_type": "Government",
+        "address": null,
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "guarantors": [],
+      "property_address": {
+        "street_address": "1900 E Street, NW",
+        "city": "Washington",
+        "state": "DC",
+        "zip_code": "20415",
+        "country": "US"
+      },
+      "rentable_square_feet": "225000",
+      "usable_square_feet": "203086",
+      "property_use_type": "office",
+      "commencement_date": "2015-09-01",
+      "expiration_date": "2030-08-28",
+      "term_months": 180,
+      "base_rent_monthly": "856629.79",
+      "base_rent_annual": "10279557.44",
+      "rent_per_sqft": "45.69",
+      "rent_escalations": [],
+      "security_deposit": "2569889.36",
+      "operating_expenses": {
+        "base_year": null,
+        "base_amount": "10.24",
+        "tenant_share_percentage": null,
+        "cap_percentage": null,
+        "exclusions": null
+      },
+      "renewal_options": [
+        {
+          "option_number": 1,
+          "term_months": 120,
+          "notice_days": 180,
+          "rent_determination": null
+        }
+      ],
+      "termination_rights": [
+        {
+          "party": "Government",
+          "earliest_date": null,
+          "notice_days": 180,
+          "termination_fee": null,
+          "conditions": "Right to terminate for convenience"
+        }
+      ],
+      "assignment_allowed": null,
+      "subletting_allowed": null,
+      "notice_period_expiry": null,
+      "type_of_term": "Fixed",
+      "type_of_space": "Office",
+      "renewal_option": true,
+      "termination_clause": true,
+      "notice_period_default": null,
+      "notice_period_covenants": null,
+      "parking_charges": "4200",
+      "parking_spaces": 114,
+      "lease_summary": "This lease is between Carr Properties and The United States of America for an office building located at 1900 E Street, NW, Washington, DC. The lease term is 15 years, commencing on September 1, 2015, and expiring on August 28, 2030. The annual rent is $10,279,557.44, with a monthly rent of $856,629.79. The lease includes one 10-year renewal option and a security deposit of $2,569,889.36. The government has the right to terminate the lease for convenience. The property includes 114 reserved parking spaces at $350.00 per space per month.",
+      "extracted_clauses": {
+        "Base building services": "Included",
+        "Tenant improvement allowance": "Provided",
+        "Government termination right": "For convenience",
+        "Security requirements": "Agency-specific applicable",
+        "Telecommunications equipment": "Government reserves right to install",
+        "Parking allocation": "Subject to change based on government needs",
+        "Use of space": "For government operations and related activities"
+      },
+      "confidence_score": 1.0,
+      "extraction_notes": [
+        "All key lease terms and provisions were extracted accurately.",
+        "Confidence score reflects high certainty in extraction quality."
+      ]
+    }
+  },
+  "GS-11P-LDC00500": {
+    "id": "GS-11P-LDC00500",
+    "property_address": "500 E Street, SW, Washington, DC",
+    "tenant": "The United States of America",
+    "landlord": "JBG SMITH Properties",
+    "monthly_rent": 1156993.74,
+    "lease_type": "net",
+    "lease_summary": "This lease is between JBG SMITH Properties and The United States of America for a mixed-use federal building located at 500 E Street, SW, Washington, DC. The lease term is 20 years, commencing on August 1, 2015, and expiring on July 27, 2035. The annual rent is $13,883,924.86, with a monthly rent of $1,156,993.74. The lease includes one 5-year renewal option and a security deposit of $3,470,981.21. The tenant is allocated 145 reserved parking spaces at $425.00 per space per month. The lease includes provisions for operating expenses and federal security requirements.",
+    "extracted_at": "2025-12-20T10:31:49.986703",
+    "full_lease_data": {
+      "document_id": "GS-11P-LDC00500",
+      "lease_type": "net",
+      "execution_date": null,
+      "landlord": {
+        "legal_name": "JBG SMITH Properties",
+        "entity_type": "Lessor",
+        "address": {
+          "street_address": "c/o L'Enfant Plaza",
+          "city": "Washington",
+          "state": "DC",
+          "zip_code": "20024",
+          "country": "US"
+        },
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "tenant": {
+        "legal_name": "The United States of America",
+        "entity_type": "Government",
+        "address": null,
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "guarantors": [],
+      "property_address": {
+        "street_address": "500 E Street, SW",
+        "city": "Washington",
+        "state": "DC",
+        "zip_code": "20024",
+        "country": "US"
+      },
+      "rentable_square_feet": "315000",
+      "usable_square_feet": "289760",
+      "property_use_type": "mixed_use",
+      "commencement_date": "2015-08-01",
+      "expiration_date": "2035-07-27",
+      "term_months": 240,
+      "base_rent_monthly": "1156993.74",
+      "base_rent_annual": "13883924.86",
+      "rent_per_sqft": "44.08",
+      "rent_escalations": [],
+      "security_deposit": "3470981.21",
+      "operating_expenses": {
+        "base_year": null,
+        "base_amount": "13.71",
+        "tenant_share_percentage": null,
+        "cap_percentage": null,
+        "exclusions": null
+      },
+      "renewal_options": [
+        {
+          "option_number": 1,
+          "term_months": 60,
+          "notice_days": 180,
+          "rent_determination": null
+        }
+      ],
+      "termination_rights": [
+        {
+          "party": "Government",
+          "earliest_date": null,
+          "notice_days": 180,
+          "termination_fee": null,
+          "conditions": "for convenience"
+        }
+      ],
+      "assignment_allowed": null,
+      "subletting_allowed": null,
+      "notice_period_expiry": null,
+      "type_of_term": "Fixed",
+      "type_of_space": "Mixed-Use",
+      "renewal_option": true,
+      "termination_clause": true,
+      "notice_period_default": null,
+      "notice_period_covenants": null,
+      "parking_charges": "51000",
+      "parking_spaces": 145,
+      "lease_summary": "This lease is between JBG SMITH Properties and The United States of America for a mixed-use federal building located at 500 E Street, SW, Washington, DC. The lease term is 20 years, commencing on August 1, 2015, and expiring on July 27, 2035. The annual rent is $13,883,924.86, with a monthly rent of $1,156,993.74. The lease includes one 5-year renewal option and a security deposit of $3,470,981.21. The tenant is allocated 145 reserved parking spaces at $425.00 per space per month. The lease includes provisions for operating expenses and federal security requirements.",
+      "extracted_clauses": {
+        "base_building_services": "included",
+        "tenant_improvement_allowance": "provided",
+        "federal_security_requirements": "met",
+        "LEED_certification": "Silver or higher"
+      },
+      "confidence_score": 1.0,
+      "extraction_notes": [
+        "All key lease terms extracted with high confidence.",
+        "Ambiguities in contact details for landlord and tenant."
+      ]
+    }
+  },
+  "GS-11P-LDC00700": {
+    "id": "GS-11P-LDC00700",
+    "property_address": "1201 Constitution Avenue, NW, Washington, DC",
+    "tenant": "The United States of America",
+    "landlord": "Tishman Speyer",
+    "monthly_rent": 2407325.65,
+    "lease_type": "net",
+    "lease_summary": "This lease is between Tishman Speyer and The United States of America for a 10-year term starting January 1, 2015, and ending December 29, 2024. The property is located at 1201 Constitution Avenue, NW, Washington, DC, with 473,000 rentable square feet designated for office use. The annual rent is $28,887,907.81, with monthly payments of $2,407,325.65. The lease includes multiple 5-year renewal options and a security deposit of $7,221,976.95. The government has the right to terminate the lease for convenience. Parking is provided for 211 reserved spaces at $450 per space per month.",
+    "extracted_at": "2025-12-20T10:32:32.345056",
+    "full_lease_data": {
+      "document_id": "GS-11P-LDC00700",
+      "lease_type": "net",
+      "execution_date": null,
+      "landlord": {
+        "legal_name": "Tishman Speyer",
+        "entity_type": "Lessor",
+        "address": {
+          "street_address": "c/o Commerce Department",
+          "city": "Washington",
+          "state": "DC",
+          "zip_code": "20230",
+          "country": "US"
+        },
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "tenant": {
+        "legal_name": "The United States of America",
+        "entity_type": "Government",
+        "address": null,
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "guarantors": [],
+      "property_address": {
+        "street_address": "1201 Constitution Avenue, NW",
+        "city": "Washington",
+        "state": "DC",
+        "zip_code": "20230",
+        "country": "US"
+      },
+      "rentable_square_feet": "473000",
+      "usable_square_feet": "426615",
+      "property_use_type": "office",
+      "commencement_date": "2015-01-01",
+      "expiration_date": "2024-12-29",
+      "term_months": 120,
+      "base_rent_monthly": "2407325.65",
+      "base_rent_annual": "28887907.81",
+      "rent_per_sqft": "61.07",
+      "rent_escalations": [],
+      "security_deposit": "7221976.95",
+      "operating_expenses": {
+        "base_year": null,
+        "base_amount": "9.96",
+        "tenant_share_percentage": null,
+        "cap_percentage": null,
+        "exclusions": null
+      },
+      "renewal_options": [
+        {
+          "option_number": 1,
+          "term_months": 60,
+          "notice_days": 180,
+          "rent_determination": null
+        },
+        {
+          "option_number": 2,
+          "term_months": 60,
+          "notice_days": 180,
+          "rent_determination": null
+        }
+      ],
+      "termination_rights": [
+        {
+          "party": "Government",
+          "earliest_date": null,
+          "notice_days": 180,
+          "termination_fee": null,
+          "conditions": "for convenience"
+        }
+      ],
+      "assignment_allowed": null,
+      "subletting_allowed": null,
+      "notice_period_expiry": null,
+      "type_of_term": "Fixed",
+      "type_of_space": "Office",
+      "renewal_option": true,
+      "termination_clause": true,
+      "notice_period_default": null,
+      "notice_period_covenants": null,
+      "parking_charges": "450",
+      "parking_spaces": 211,
+      "lease_summary": "This lease is between Tishman Speyer and The United States of America for a 10-year term starting January 1, 2015, and ending December 29, 2024. The property is located at 1201 Constitution Avenue, NW, Washington, DC, with 473,000 rentable square feet designated for office use. The annual rent is $28,887,907.81, with monthly payments of $2,407,325.65. The lease includes multiple 5-year renewal options and a security deposit of $7,221,976.95. The government has the right to terminate the lease for convenience. Parking is provided for 211 reserved spaces at $450 per space per month.",
+      "extracted_clauses": {
+        "Base building services included": "true",
+        "Tenant improvement allowance provided": "true",
+        "Government shall have right to terminate for convenience": "true",
+        "Standard government lease provisions apply": "true",
+        "Property meets all federal security requirements": "true",
+        "LEED certification": "Silver or higher",
+        "Agency-specific security requirements applicable": "true",
+        "Government reserves right to install telecommunications equipment": "true",
+        "Parking allocation subject to change based on government needs": "true",
+        "Space may be used for government operations and related activities": "true"
+      },
+      "confidence_score": 1.0,
+      "extraction_notes": []
+    }
+  },
+  "GS-11P-LDC00800": {
+    "id": "GS-11P-LDC00800",
+    "property_address": "400 7th Street, SW, Washington, DC",
+    "tenant": "The United States of America",
+    "landlord": "Hines Real Estate",
+    "monthly_rent": 1748423.81,
+    "lease_type": "net",
+    "lease_summary": "This lease is between Hines Real Estate and The United States of America for a secure facility located at 400 7th Street, SW, Washington, DC. The lease term is 20 years, commencing on September 1, 2015, and expiring on August 27, 2035. The annual rent is $20,981,085.73, with a monthly rent of $1,748,423.81. The lease includes one 5-year renewal option and a security deposit of $3,496,847.62. The tenant is allocated 217 reserved parking spaces at $450 per space per month. The lease allows for government operations and includes provisions for termination for convenience.",
+    "extracted_at": "2025-12-20T10:32:52.545705",
+    "full_lease_data": {
+      "document_id": "GS-11P-LDC00800",
+      "lease_type": "net",
+      "execution_date": null,
+      "landlord": {
+        "legal_name": "Hines Real Estate",
+        "entity_type": "Lessor",
+        "address": {
+          "street_address": "c/o DOT Headquarters",
+          "city": "Washington",
+          "state": "DC",
+          "zip_code": "20590",
+          "country": "US"
+        },
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "tenant": {
+        "legal_name": "The United States of America",
+        "entity_type": "Government",
+        "address": null,
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "guarantors": [],
+      "property_address": {
+        "street_address": "400 7th Street, SW",
+        "city": "Washington",
+        "state": "DC",
+        "zip_code": "20590",
+        "country": "US"
+      },
+      "rentable_square_feet": "520000",
+      "usable_square_feet": "456985",
+      "property_use_type": "office",
+      "commencement_date": "2015-09-01",
+      "expiration_date": "2035-08-27",
+      "term_months": 240,
+      "base_rent_monthly": "1748423.81",
+      "base_rent_annual": "20981085.73",
+      "rent_per_sqft": "40.35",
+      "rent_escalations": [],
+      "security_deposit": "3496847.62",
+      "operating_expenses": {
+        "base_year": null,
+        "base_amount": "10.58",
+        "tenant_share_percentage": null,
+        "cap_percentage": null,
+        "exclusions": null
+      },
+      "renewal_options": [
+        {
+          "option_number": 1,
+          "term_months": 60,
+          "notice_days": 180,
+          "rent_determination": null
+        }
+      ],
+      "termination_rights": [
+        {
+          "party": "Government",
+          "earliest_date": null,
+          "notice_days": 180,
+          "termination_fee": null,
+          "conditions": "for convenience"
+        }
+      ],
+      "assignment_allowed": null,
+      "subletting_allowed": null,
+      "notice_period_expiry": null,
+      "type_of_term": "Fixed",
+      "type_of_space": "office",
+      "renewal_option": true,
+      "termination_clause": true,
+      "notice_period_default": null,
+      "notice_period_covenants": null,
+      "parking_charges": "450",
+      "parking_spaces": 217,
+      "lease_summary": "This lease is between Hines Real Estate and The United States of America for a secure facility located at 400 7th Street, SW, Washington, DC. The lease term is 20 years, commencing on September 1, 2015, and expiring on August 27, 2035. The annual rent is $20,981,085.73, with a monthly rent of $1,748,423.81. The lease includes one 5-year renewal option and a security deposit of $3,496,847.62. The tenant is allocated 217 reserved parking spaces at $450 per space per month. The lease allows for government operations and includes provisions for termination for convenience.",
+      "extracted_clauses": {
+        "Base building services": "included",
+        "Tenant improvement allowance": "provided",
+        "Government termination right": "for convenience",
+        "Property security requirements": "meets federal standards",
+        "LEED certification": "Silver or higher"
+      },
+      "confidence_score": 1.0,
+      "extraction_notes": []
+    }
+  },
+  "GS-11P-LDC01300": {
+    "id": "GS-11P-LDC01300",
+    "property_address": "1775 Eye Street, NW, Washington, DC",
+    "tenant": "The United States of America",
+    "landlord": "Kilroy Realty Corporation",
+    "monthly_rent": 661236.11,
+    "lease_type": "net",
+    "lease_summary": "This lease is between Kilroy Realty Corporation and The United States of America for a premium office building at 1775 Eye Street, NW, Washington, DC. The lease term is 20 years, commencing on October 1, 2015, and expiring on September 26, 2035. The annual rent is $7,934,833.29, with a monthly rent of $661,236.11. The lease includes a renewal option for one 10-year term and a security deposit of $1,322,472.21. The tenant has 89 reserved parking spaces at $375 per space per month. The lease includes provisions for operating expenses and federal security requirements.",
+    "extracted_at": "2025-12-20T10:34:37.733822",
+    "full_lease_data": {
+      "document_id": "GS-11P-LDC01300",
+      "lease_type": "net",
+      "execution_date": null,
+      "landlord": {
+        "legal_name": "Kilroy Realty Corporation",
+        "entity_type": "Lessor",
+        "address": {
+          "street_address": "c/o Eye Street Plaza",
+          "city": "Washington",
+          "state": "DC",
+          "zip_code": "20006",
+          "country": "US"
+        },
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "tenant": {
+        "legal_name": "The United States of America",
+        "entity_type": "Government",
+        "address": null,
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "guarantors": [],
+      "property_address": {
+        "street_address": "1775 Eye Street, NW",
+        "city": "Washington",
+        "state": "DC",
+        "zip_code": "20006",
+        "country": "US"
+      },
+      "rentable_square_feet": "195000",
+      "usable_square_feet": "171580",
+      "property_use_type": "office",
+      "commencement_date": "2015-10-01",
+      "expiration_date": "2035-09-26",
+      "term_months": 240,
+      "base_rent_monthly": "661236.11",
+      "base_rent_annual": "7934833.29",
+      "rent_per_sqft": "40.69",
+      "rent_escalations": [],
+      "security_deposit": "1322472.21",
+      "operating_expenses": {
+        "base_year": null,
+        "base_amount": "12.38",
+        "tenant_share_percentage": null,
+        "cap_percentage": null,
+        "exclusions": null
+      },
+      "renewal_options": [
+        {
+          "option_number": 1,
+          "term_months": 120,
+          "notice_days": 180,
+          "rent_determination": null
+        }
+      ],
+      "termination_rights": [
+        {
+          "party": "Government",
+          "earliest_date": null,
+          "notice_days": 180,
+          "termination_fee": null,
+          "conditions": "for convenience"
+        }
+      ],
+      "assignment_allowed": null,
+      "subletting_allowed": null,
+      "notice_period_expiry": null,
+      "type_of_term": "Fixed",
+      "type_of_space": "Office",
+      "renewal_option": true,
+      "termination_clause": true,
+      "notice_period_default": null,
+      "notice_period_covenants": null,
+      "parking_charges": "4500",
+      "parking_spaces": 89,
+      "lease_summary": "This lease is between Kilroy Realty Corporation and The United States of America for a premium office building at 1775 Eye Street, NW, Washington, DC. The lease term is 20 years, commencing on October 1, 2015, and expiring on September 26, 2035. The annual rent is $7,934,833.29, with a monthly rent of $661,236.11. The lease includes a renewal option for one 10-year term and a security deposit of $1,322,472.21. The tenant has 89 reserved parking spaces at $375 per space per month. The lease includes provisions for operating expenses and federal security requirements.",
+      "extracted_clauses": {
+        "base_building_services": "included",
+        "tenant_improvement_allowance": "provided",
+        "federal_security_requirements": "met",
+        "LEED_certification": "Silver or higher"
+      },
+      "confidence_score": 1.0,
+      "extraction_notes": [
+        "All key lease terms and provisions extracted accurately."
+      ]
+    }
+  },
+  "GS-11P-LDC01400": {
+    "id": "GS-11P-LDC01400",
+    "property_address": "1620 L Street, NW, Washington, DC",
+    "tenant": "The United States of America",
+    "landlord": "Maguire Properties",
+    "monthly_rent": 1124058.71,
+    "lease_type": "net",
+    "lease_summary": "This lease is between Maguire Properties and The United States of America for a mid-rise office space located at 1620 L Street, NW, Washington, DC. The lease term is 10 years, commencing on July 1, 2015, and expiring on June 28, 2025. The annual rent is $13,488,704.53, with a monthly rent of $1,124,058.71, and operating expenses of $9.01 per square foot annually. The lease includes multiple 5-year renewal options and a security deposit of $3,372,176.13. The government has the right to terminate the lease for convenience and has specific agency security requirements. Parking is allocated for 126 reserved spaces.",
+    "extracted_at": "2025-12-20T10:35:00.884662",
+    "full_lease_data": {
+      "document_id": "GS-11P-LDC01400",
+      "lease_type": "net",
+      "execution_date": null,
+      "landlord": {
+        "legal_name": "Maguire Properties",
+        "entity_type": "Lessor",
+        "address": {
+          "street_address": "c/o L Street Building",
+          "city": "Washington",
+          "state": "DC",
+          "zip_code": "20036",
+          "country": "US"
+        },
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "tenant": {
+        "legal_name": "The United States of America",
+        "entity_type": "Government",
+        "address": null,
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "guarantors": [],
+      "property_address": {
+        "street_address": "1620 L Street, NW",
+        "city": "Washington",
+        "state": "DC",
+        "zip_code": "20036",
+        "country": "US"
+      },
+      "rentable_square_feet": "265000",
+      "usable_square_feet": "238576",
+      "property_use_type": "office",
+      "commencement_date": "2015-07-01",
+      "expiration_date": "2025-06-28",
+      "term_months": 120,
+      "base_rent_monthly": "1124058.71",
+      "base_rent_annual": "13488704.53",
+      "rent_per_sqft": "50.9",
+      "rent_escalations": [],
+      "security_deposit": "3372176.13",
+      "operating_expenses": {
+        "base_year": null,
+        "base_amount": "9.01",
+        "tenant_share_percentage": null,
+        "cap_percentage": null,
+        "exclusions": null
+      },
+      "renewal_options": [
+        {
+          "option_number": 1,
+          "term_months": 60,
+          "notice_days": 180,
+          "rent_determination": null
+        },
+        {
+          "option_number": 2,
+          "term_months": 60,
+          "notice_days": 180,
+          "rent_determination": null
+        }
+      ],
+      "termination_rights": [
+        {
+          "party": "Government",
+          "earliest_date": null,
+          "notice_days": 180,
+          "termination_fee": null,
+          "conditions": "Right to terminate for convenience"
+        }
+      ],
+      "assignment_allowed": null,
+      "subletting_allowed": null,
+      "notice_period_expiry": null,
+      "type_of_term": "Fixed",
+      "type_of_space": "Office",
+      "renewal_option": true,
+      "termination_clause": true,
+      "notice_period_default": null,
+      "notice_period_covenants": null,
+      "parking_charges": "5100",
+      "parking_spaces": 126,
+      "lease_summary": "This lease is between Maguire Properties and The United States of America for a mid-rise office space located at 1620 L Street, NW, Washington, DC. The lease term is 10 years, commencing on July 1, 2015, and expiring on June 28, 2025. The annual rent is $13,488,704.53, with a monthly rent of $1,124,058.71, and operating expenses of $9.01 per square foot annually. The lease includes multiple 5-year renewal options and a security deposit of $3,372,176.13. The government has the right to terminate the lease for convenience and has specific agency security requirements. Parking is allocated for 126 reserved spaces.",
+      "extracted_clauses": {
+        "Base building services included": "Included",
+        "Tenant improvement allowance provided": "Provided",
+        "Government shall have right to terminate for convenience": "True",
+        "Standard government lease provisions apply": "Applicable",
+        "Property meets all federal security requirements": "Meets requirements",
+        "LEED certification": "Silver or higher",
+        "Agency-specific security requirements applicable": "Applicable",
+        "Government reserves right to install telecommunications equipment": "True",
+        "Parking allocation subject to change based on government needs": "True",
+        "Space may be used for government operations and related activities": "Allowed"
+      },
+      "confidence_score": 1.0,
+      "extraction_notes": [
+        "All key lease terms and provisions were extracted accurately.",
+        "Renewal options were inferred based on the mention of multiple 5-year options."
+      ]
+    }
+  },
+  "GS-11P-LDC02100": {
+    "id": "GS-11P-LDC02100",
+    "property_address": "800 North Capitol Street, NW, Washington, DC",
+    "tenant": "The United States of America",
+    "landlord": "Shorenstein Properties",
+    "monthly_rent": 528984.43,
+    "lease_type": "net",
+    "lease_summary": "This lease is between Shorenstein Properties and The United States of America for a federal building located at 800 North Capitol Street, NW, Washington, DC. The lease term is 15 years, commencing on August 1, 2015, and expiring on July 28, 2030. The annual rent is $6,347,813.12, with a monthly rent of $528,984.43. The lease includes two 5-year renewal options and a security deposit of $1,586,953.28. The tenant is allocated 62 reserved parking spaces at $375.00 per space per month. The lease allows for government operations and includes provisions for termination for convenience.",
+    "extracted_at": "2025-12-20T10:37:13.645286",
+    "full_lease_data": {
+      "document_id": "GS-11P-LDC02100",
+      "lease_type": "net",
+      "execution_date": null,
+      "landlord": {
+        "legal_name": "Shorenstein Properties",
+        "entity_type": "Lessor",
+        "address": {
+          "street_address": "c/o Capitol Office",
+          "city": "Washington",
+          "state": "DC",
+          "zip_code": "20002",
+          "country": "US"
+        },
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "tenant": {
+        "legal_name": "The United States of America",
+        "entity_type": "Government",
+        "address": null,
+        "contact_name": null,
+        "contact_email": null,
+        "contact_phone": null
+      },
+      "guarantors": [],
+      "property_address": {
+        "street_address": "800 North Capitol Street, NW",
+        "city": "Washington",
+        "state": "DC",
+        "zip_code": "20002",
+        "country": "US"
+      },
+      "rentable_square_feet": "110000",
+      "usable_square_feet": "98140",
+      "property_use_type": "office",
+      "commencement_date": "2015-08-01",
+      "expiration_date": "2030-07-28",
+      "term_months": 180,
+      "base_rent_monthly": "528984.43",
+      "base_rent_annual": "6347813.12",
+      "rent_per_sqft": "57.71",
+      "rent_escalations": [],
+      "security_deposit": "1586953.28",
+      "operating_expenses": {
+        "base_year": null,
+        "base_amount": "13.52",
+        "tenant_share_percentage": null,
+        "cap_percentage": null,
+        "exclusions": null
+      },
+      "renewal_options": [
+        {
+          "option_number": 1,
+          "term_months": 60,
+          "notice_days": 180,
+          "rent_determination": null
+        },
+        {
+          "option_number": 2,
+          "term_months": 60,
+          "notice_days": 180,
+          "rent_determination": null
+        }
+      ],
+      "termination_rights": [
+        {
+          "party": "Government",
+          "earliest_date": null,
+          "notice_days": 180,
+          "termination_fee": null,
+          "conditions": "for convenience"
+        }
+      ],
+      "assignment_allowed": null,
+      "subletting_allowed": null,
+      "notice_period_expiry": null,
+      "type_of_term": "Fixed",
+      "type_of_space": "office",
+      "renewal_option": true,
+      "termination_clause": true,
+      "notice_period_default": null,
+      "notice_period_covenants": null,
+      "parking_charges": "4500",
+      "parking_spaces": 62,
+      "lease_summary": "This lease is between Shorenstein Properties and The United States of America for a federal building located at 800 North Capitol Street, NW, Washington, DC. The lease term is 15 years, commencing on August 1, 2015, and expiring on July 28, 2030. The annual rent is $6,347,813.12, with a monthly rent of $528,984.43. The lease includes two 5-year renewal options and a security deposit of $1,586,953.28. The tenant is allocated 62 reserved parking spaces at $375.00 per space per month. The lease allows for government operations and includes provisions for termination for convenience.",
       "extracted_clauses": {},
       "confidence_score": 1.0,
       "extraction_notes": []
     }
   },
-  "200_commerce_st.pdf": {
-    "id": "200_commerce_st.pdf",
-    "property_address": "200 Commerce Street, Dallas, TX",
-    "tenant": "Retail Shop Co",
-    "landlord": "ABC Properties LLC",
-    "monthly_rent": 6000.0,
-    "lease_type": "modified_gross",
-    "extracted_at": "2025-12-17T15:59:46.829622",
+  "GS-11P-LDC02300": {
+    "id": "GS-11P-LDC02300",
+    "property_address": "1250 Connecticut Avenue, NW, Washington, DC",
+    "tenant": "The United States of America",
+    "landlord": "Alexandria Real Estate Equities",
+    "monthly_rent": 992627.21,
+    "lease_type": "net",
+    "lease_summary": "This lease is between Alexandria Real Estate Equities and The United States of America for a Class A office space located at 1250 Connecticut Avenue, NW, Washington, DC. The lease term is 20 years, commencing on February 1, 2015, and expiring on January 27, 2035. The annual rent is $11,911,526.50, with a monthly rent of $992,627.21. The lease includes two 5-year renewal options and a security deposit of $1,985,254.42. The tenant has the right to terminate for convenience, and the lease includes provisions for operating expenses and parking charges of $450 per space monthly for 110 reserved spaces.",
+    "extracted_at": "2025-12-20T10:37:53.929621",
     "full_lease_data": {
-      "document_id": "200_commerce_st.pdf",
-      "lease_type": "modified_gross",
+      "document_id": "GS-11P-LDC02300",
+      "lease_type": "net",
       "execution_date": null,
       "landlord": {
-        "legal_name": "ABC Properties LLC",
-        "entity_type": null,
-        "address": null,
+        "legal_name": "Alexandria Real Estate Equities",
+        "entity_type": "Lessor",
+        "address": {
+          "street_address": "c/o Connecticut Plaza",
+          "city": "Washington",
+          "state": "DC",
+          "zip_code": "20036",
+          "country": "US"
+        },
         "contact_name": null,
         "contact_email": null,
         "contact_phone": null
       },
       "tenant": {
-        "legal_name": "Retail Shop Co",
-        "entity_type": null,
+        "legal_name": "The United States of America",
+        "entity_type": "Government",
         "address": null,
         "contact_name": null,
         "contact_email": null,
@@ -86,31 +994,82 @@
       },
       "guarantors": [],
       "property_address": {
-        "street_address": "200 Commerce Street",
-        "city": "Dallas",
-        "state": "TX",
-        "zip_code": "75202",
+        "street_address": "1250 Connecticut Avenue, NW",
+        "city": "Washington",
+        "state": "DC",
+        "zip_code": "20036",
         "country": "US"
       },
-      "rentable_square_feet": "2500",
-      "usable_square_feet": null,
-      "property_use_type": "retail",
-      "commencement_date": "2024-03-01",
-      "expiration_date": "2027-02-28",
-      "term_months": 36,
-      "base_rent_monthly": "6000",
-      "base_rent_annual": "72000",
-      "rent_per_sqft": "2.4",
+      "rentable_square_feet": "240000",
+      "usable_square_feet": "213744",
+      "property_use_type": "office",
+      "commencement_date": "2015-02-01",
+      "expiration_date": "2035-01-27",
+      "term_months": 240,
+      "base_rent_monthly": "992627.21",
+      "base_rent_annual": "11911526.5",
+      "rent_per_sqft": "49.63",
       "rent_escalations": [],
-      "security_deposit": null,
-      "operating_expenses": null,
-      "renewal_options": [],
-      "termination_rights": [],
+      "security_deposit": "1985254.42",
+      "operating_expenses": {
+        "base_year": null,
+        "base_amount": "9.79",
+        "tenant_share_percentage": null,
+        "cap_percentage": null,
+        "exclusions": null
+      },
+      "renewal_options": [
+        {
+          "option_number": 1,
+          "term_months": 60,
+          "notice_days": 180,
+          "rent_determination": null
+        },
+        {
+          "option_number": 2,
+          "term_months": 60,
+          "notice_days": 180,
+          "rent_determination": null
+        }
+      ],
+      "termination_rights": [
+        {
+          "party": "Government",
+          "earliest_date": null,
+          "notice_days": 180,
+          "termination_fee": null,
+          "conditions": "Right to terminate for convenience"
+        }
+      ],
       "assignment_allowed": null,
       "subletting_allowed": null,
-      "extracted_clauses": {},
+      "notice_period_expiry": null,
+      "type_of_term": "Fixed",
+      "type_of_space": "Office",
+      "renewal_option": true,
+      "termination_clause": true,
+      "notice_period_default": null,
+      "notice_period_covenants": null,
+      "parking_charges": "450",
+      "parking_spaces": 110,
+      "lease_summary": "This lease is between Alexandria Real Estate Equities and The United States of America for a Class A office space located at 1250 Connecticut Avenue, NW, Washington, DC. The lease term is 20 years, commencing on February 1, 2015, and expiring on January 27, 2035. The annual rent is $11,911,526.50, with a monthly rent of $992,627.21. The lease includes two 5-year renewal options and a security deposit of $1,985,254.42. The tenant has the right to terminate for convenience, and the lease includes provisions for operating expenses and parking charges of $450 per space monthly for 110 reserved spaces.",
+      "extracted_clauses": {
+        "Base building services included": "Included",
+        "Tenant improvement allowance provided": "Provided",
+        "Government shall have right to terminate for convenience": "True",
+        "Standard government lease provisions apply": "Applicable",
+        "Property meets all federal security requirements": "Meets requirements",
+        "LEED certification": "Silver or higher",
+        "Agency-specific security requirements applicable": "Applicable",
+        "Government reserves right to install telecommunications equipment": "True",
+        "Parking allocation subject to change based on government needs": "True",
+        "Space may be used for government operations and related activities": "True"
+      },
       "confidence_score": 1.0,
-      "extraction_notes": []
+      "extraction_notes": [
+        "All key lease terms and provisions were extracted accurately.",
+        "Confidence in extraction is high due to clear lease language."
+      ]
     }
   }
 }

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lease Librarian</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { 
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f3f4f6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #9ca3af;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        function LeaseDigitizerV2() {
+            const [leases, setLeases] = useState([]);
+            const [selectedLease, setSelectedLease] = useState(null);
+            const [messages, setMessages] = useState([
+                { id: 1, content: "Hello! I'm your Lease Librarian. Ask me anything about your lease portfolio!", isUser: false }
+            ]);
+            const [inputMessage, setInputMessage] = useState('');
+            const [chatLoading, setChatLoading] = useState(false);
+            const [conversationId, setConversationId] = useState(null);
+            const chatEndRef = useRef(null);
+
+            useEffect(() => {
+                loadLeases();
+            }, []);
+
+            useEffect(() => {
+                chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+            }, [messages]);
+
+            const loadLeases = async () => {
+                try {
+                    const response = await fetch('http://localhost:8001/api/v1/leases');
+                    const data = await response.json();
+                    setLeases(data.leases || []);
+                    
+                    if (data.leases && data.leases.length > 0 && !selectedLease) {
+                        loadLeaseDetails(data.leases[0].id);
+                    }
+                } catch (err) {
+                    console.error('Failed to load leases:', err);
+                }
+            };
+
+            const loadLeaseDetails = async (leaseId) => {
+                try {
+                    const response = await fetch(`http://localhost:8001/api/v1/leases/${leaseId}`);
+                    const data = await response.json();
+                    setSelectedLease(data.lease);
+                } catch (err) {
+                    console.error('Failed to load lease details:', err);
+                }
+            };
+
+            const sendMessage = async () => {
+                if (!inputMessage.trim() || chatLoading) return;
+
+                const userMessage = {
+                    id: Date.now(),
+                    content: inputMessage,
+                    isUser: true
+                };
+
+                setMessages(prev => [...prev, userMessage]);
+                setInputMessage('');
+                setChatLoading(true);
+
+                try {
+                    const response = await fetch('http://localhost:8001/api/v1/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            message: inputMessage,
+                            conversation_id: conversationId
+                        })
+                    });
+
+                    const data = await response.json();
+                    
+                    setConversationId(data.conversation_id);
+                    
+                    const botMessage = {
+                        id: Date.now() + 1,
+                        content: data.response,
+                        isUser: false,
+                        sources: data.sources
+                    };
+
+                    setMessages(prev => [...prev, botMessage]);
+                } catch (err) {
+                    const errorMessage = {
+                        id: Date.now() + 1,
+                        content: 'Sorry, I encountered an error. Please try again.',
+                        isUser: false
+                    };
+                    setMessages(prev => [...prev, errorMessage]);
+                } finally {
+                    setChatLoading(false);
+                }
+            };
+
+            const formatCurrency = (value) => {
+                if (!value) return 'N/A';
+                return new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(value);
+            };
+
+            const formatDate = (dateString) => {
+                if (!dateString) return 'N/A';
+                return new Date(dateString).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+            };
+
+            const formatBoolean = (value) => {
+                if (value === null || value === undefined) return 'N/A';
+                return value ? 'Yes' : 'No';
+            };
+
+            return (
+                <div className="h-screen w-screen overflow-hidden bg-white flex flex-col">
+                    {/* VTS-Style Header */}
+                    <div className="bg-gradient-to-r from-[#0F3D5C] to-[#1E5A8E] shadow-lg px-8 py-5 flex justify-between items-center">
+                        <div>
+                            <h1 className="text-3xl font-bold text-white">Lease Librarian v1.0 beta</h1>
+                            <p className="text-sm text-blue-100 mt-1">Your AI-Powered Commercial Lease Intelligence Platform</p>
+                        </div>
+                        <div className="flex gap-6 items-center">
+                            <div className="text-right">
+                                <div className="text-xs text-blue-200 uppercase tracking-wide">Portfolio Size</div>
+                                <div className="text-2xl font-bold text-[#00A9CE]">{leases.length} Leases</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Main Grid Layout */}
+                    <div className="flex-1 grid grid-cols-[40%_60%] gap-2.5 p-2.5 overflow-hidden" style={{gridTemplateRows: '30% 70%'}}>
+                        
+                        {/* TOP-LEFT: Lease Library */}
+                        <div className="bg-white border border-[#E5E7EB] rounded-lg shadow-sm overflow-hidden flex flex-col" style={{gridColumn: '1', gridRow: '1'}}>
+                            <div className="px-5 bg-gradient-to-r from-[#0F3D5C] to-[#1E5A8E] border-b border-[#E5E7EB]" style={{paddingTop: '20px', paddingBottom: '10px'}}>
+                                <h2 className="text-lg font-semibold text-white flex items-center gap-2">
+                                    📚 Lease Library
+                                </h2>
+                            </div>
+                            
+                            <div className="flex-1 overflow-y-auto p-2.5 bg-gray-50">
+                                {leases.length === 0 ? (
+                                    <div className="text-center py-8 text-[#6B7280]">
+                                        <p className="text-base">No leases uploaded yet</p>
+                                        <p className="text-sm mt-2">Use the API to upload lease documents</p>
+                                    </div>
+                                ) : (
+                                    <div className="grid grid-cols-3 gap-2">
+                                        {leases.map(lease => (
+                                            <div
+                                                key={lease.id}
+                                                className={`p-2.5 rounded-lg border-2 cursor-pointer transition bg-white flex flex-col ${
+                                                    selectedLease?.document_id === lease.id
+                                                        ? 'border-[#00A9CE] shadow-md'
+                                                        : 'border-[#E5E7EB] hover:border-[#1E5A8E] hover:shadow-sm'
+                                                }`}
+                                            >
+                                                <div onClick={() => loadLeaseDetails(lease.id)} className="flex-1">
+                                                    <div className="text-2xl mb-2">🏢</div>
+                                                    <div className="text-xs font-semibold text-[#1F2937] truncate">
+                                                        {lease.property_address?.split(',')[0] || lease.property_address}
+                                                    </div>
+                                                    <div className="text-xs text-[#6B7280] mt-1 truncate">
+                                                        {lease.property_address?.split(',').slice(1).join(',').trim() || 'N/A'}
+                                                    </div>
+                                                    <div className="text-xs text-[#6B7280] mt-1 truncate">
+                                                        {lease.tenant}
+                                                    </div>
+                                                </div>
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        window.open('demo-lease.pdf', '_blank');
+                                                    }}
+                                                    className="mt-2 w-full px-2 py-1.5 bg-[#1E5A8E] hover:bg-[#0F3D5C] text-white text-xs font-medium rounded transition flex items-center justify-center gap-1"
+                                                >
+                                                    📄 Open PDF
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* BOTTOM-LEFT: Lease Librarian (Chat) */}
+                        <div className="bg-white border border-[#E5E7EB] rounded-lg shadow-sm overflow-hidden flex flex-col" style={{gridColumn: '1', gridRow: '2'}}>
+                            <div className="px-5 bg-[#6B7280] border-b border-[#E5E7EB]" style={{paddingTop: '20px', paddingBottom: '10px'}}>
+                                <h2 className="text-lg font-semibold text-white flex items-center gap-2">
+                                    💬 Lease Librarian
+                                </h2>
+                                <p className="text-xs text-gray-100 mt-1">Ask me anything about your portfolio</p>
+                            </div>
+                            
+                            {/* Messages */}
+                            <div className="flex-1 overflow-y-auto p-2.5 bg-gray-50 space-y-3">
+                                {messages.map(msg => (
+                                    <div
+                                        key={msg.id}
+                                        className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}
+                                    >
+                                        <div
+                                            className={`max-w-[80%] rounded-lg px-2.5 py-2.5 ${
+                                                msg.isUser
+                                                    ? 'bg-[#1E5A8E] text-white'
+                                                    : 'bg-white text-[#1F2937] border border-[#E5E7EB]'
+                                            }`}
+                                        >
+                                            <div className="text-sm">{msg.content}</div>
+                                            {msg.sources && msg.sources.length > 0 && (
+                                                <div className="text-xs mt-2 opacity-70">
+                                                    Sources: {msg.sources.join(', ')}
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                ))}
+                                {chatLoading && (
+                                    <div className="flex justify-start">
+                                        <div className="bg-white border border-[#E5E7EB] rounded-lg px-2.5 py-2.5">
+                                            <div className="flex gap-1">
+                                                <div className="w-2 h-2 bg-[#6B7280] rounded-full animate-bounce"></div>
+                                                <div className="w-2 h-2 bg-[#6B7280] rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                                                <div className="w-2 h-2 bg-[#6B7280] rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                                <div ref={chatEndRef} />
+                            </div>
+
+                            {/* Input */}
+                            <div className="p-2.5 border-t border-[#E5E7EB] bg-white">
+                                <div className="flex gap-2">
+                                    <input
+                                        type="text"
+                                        value={inputMessage}
+                                        onChange={(e) => setInputMessage(e.target.value)}
+                                        onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+                                        placeholder="Ask about your leases..."
+                                        className="flex-1 px-4 py-3 rounded-lg border-2 border-[#E5E7EB] focus:border-[#00A9CE] focus:ring-2 focus:ring-[#00A9CE] focus:ring-opacity-20 outline-none transition text-[#1F2937]"
+                                        disabled={chatLoading}
+                                    />
+                                    <button
+                                        onClick={sendMessage}
+                                        disabled={chatLoading || !inputMessage.trim()}
+                                        className="px-6 py-3 bg-[#1E5A8E] hover:bg-[#0F3D5C] disabled:bg-[#E5E7EB] disabled:text-[#9CA3AF] text-white font-semibold rounded-lg transition"
+                                    >
+                                        Send
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* RIGHT: Lease Details (Full Height) */}
+                        <div className="bg-white border border-[#E5E7EB] rounded-lg shadow-sm overflow-hidden flex flex-col" style={{gridColumn: '2', gridRow: '1 / 3'}}>
+                            <div className="px-5 bg-gradient-to-r from-[#0F3D5C] to-[#1E5A8E] border-b border-[#E5E7EB]" style={{paddingTop: '20px', paddingBottom: '10px'}}>
+                                <h2 className="text-lg font-semibold text-white flex items-center gap-2">
+                                    📄 Lease Details
+                                </h2>
+                            </div>
+                            
+                            <div className="flex-1 overflow-y-auto p-2.5 bg-gray-50">
+                                {!selectedLease ? (
+                                    <div className="flex items-center justify-center h-full text-[#6B7280]">
+                                        <div className="text-center">
+                                            <div className="text-6xl mb-4">📋</div>
+                                            <p className="text-lg font-medium">Select a lease from the library</p>
+                                            <p className="text-sm mt-2">or ask the Librarian to show you one</p>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="space-y-5">
+                                        {/* Metadata Cards */}
+                                        <div className="grid grid-cols-4 gap-3">
+                                            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-2.5 border border-blue-200">
+                                                <div className="text-xs text-[#1E5A8E] font-semibold mb-1">Confidence</div>
+                                                <div className="text-2xl font-bold text-[#0F3D5C]">
+                                                    {Math.round((selectedLease.confidence_score || 0) * 100)}%
+                                                </div>
+                                            </div>
+
+                                            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-2.5 border border-green-200">
+                                                <div className="text-xs text-green-700 font-semibold mb-1">Lease Type</div>
+                                                <div className="text-sm font-bold text-green-900 capitalize">
+                                                    {selectedLease.lease_type?.replace('_', ' ') || 'N/A'}
+                                                </div>
+                                            </div>
+
+                                            <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-lg p-2.5 border border-cyan-200">
+                                                <div className="text-xs text-cyan-700 font-semibold mb-1">Square Feet</div>
+                                                <div className="text-lg font-bold text-cyan-900">
+                                                    {Number(selectedLease.rentable_square_feet || 0).toLocaleString()}
+                                                </div>
+                                            </div>
+
+                                            <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg p-2.5 border border-gray-300">
+                                                <div className="text-xs text-gray-700 font-semibold mb-1">Term</div>
+                                                <div className="text-lg font-bold text-gray-900">
+                                                    {selectedLease.term_months || 0} mo
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Main Data */}
+                                        <div className="grid grid-cols-2 gap-4">
+                                            {/* Parties */}
+                                            <div className="bg-white border border-[#E5E7EB] rounded-lg p-2.5 shadow-sm">
+                                                <h3 className="font-semibold text-[#0F3D5C] mb-3 flex items-center gap-2">
+                                                    👥 Parties
+                                                </h3>
+                                                <div className="space-y-3">
+                                                    <div className="border-l-4 border-[#1E5A8E] pl-3">
+                                                        <div className="text-xs text-[#6B7280]">Landlord</div>
+                                                        <div className="font-semibold text-[#1F2937]">
+                                                            {selectedLease.landlord?.legal_name || 'Not specified'}
+                                                        </div>
+                                                    </div>
+                                                    <div className="border-l-4 border-[#10B981] pl-3">
+                                                        <div className="text-xs text-[#6B7280]">Tenant</div>
+                                                        <div className="font-semibold text-[#1F2937]">
+                                                            {selectedLease.tenant?.legal_name || 'Not specified'}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Premises (formerly Property) */}
+                                            <div className="bg-white border border-[#E5E7EB] rounded-lg p-2.5 shadow-sm">
+                                                <h3 className="font-semibold text-[#0F3D5C] mb-3 flex items-center gap-2">
+                                                    🏢 Premises
+                                                </h3>
+                                                <div className="space-y-2">
+                                                    {selectedLease.property_address && (
+                                                        <div>
+                                                            <div className="text-xs text-[#6B7280]">Address</div>
+                                                            <div className="text-sm font-medium text-[#1F2937]">
+                                                                {selectedLease.property_address.street_address}
+                                                            </div>
+                                                            <div className="text-sm text-[#6B7280]">
+                                                                {selectedLease.property_address.city}, {selectedLease.property_address.state} {selectedLease.property_address.zip_code}
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                    <div className="flex justify-between pt-2 border-t border-gray-200">
+                                                        <span className="text-xs text-[#6B7280]">Net Rentable Area (sf)</span>
+                                                        <span className="text-sm font-semibold text-[#1F2937]">
+                                                            {selectedLease.rentable_square_feet ? Number(selectedLease.rentable_square_feet).toLocaleString() : 'N/A'}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex justify-between">
+                                                        <span className="text-xs text-[#6B7280]">Parking Spaces</span>
+                                                        <span className="text-sm font-semibold text-[#1F2937]">
+                                                            {selectedLease.parking_spaces || 'N/A'}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Financial Terms - REORDERED */}
+                                            <div className="bg-white border border-[#E5E7EB] rounded-lg p-2.5 shadow-sm">
+                                                <h3 className="font-semibold text-[#0F3D5C] mb-3 flex items-center gap-2">
+                                                    💰 Financial Terms
+                                                </h3>
+                                                <div className="space-y-2">
+                                                    <div className="flex justify-between">
+                                                        <span className="text-sm text-[#6B7280]">Annual Rent</span>
+                                                        <span className="font-bold text-[#1F2937]">
+                                                            {formatCurrency(selectedLease.base_rent_annual)}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex justify-between">
+                                                        <span className="text-sm text-[#6B7280]">Monthly Rent</span>
+                                                        <span className="font-semibold text-[#1F2937]">
+                                                            {formatCurrency(selectedLease.base_rent_monthly)}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex justify-between">
+                                                        <span className="text-sm text-[#6B7280]">Lease Rate Per Sq.Ft.</span>
+                                                        <span className="font-semibold text-[#00A9CE]">
+                                                            {selectedLease.rent_per_sqft ? formatCurrency(selectedLease.rent_per_sqft) : 'N/A'}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex justify-between pt-2 border-t border-gray-200">
+                                                        <span className="text-sm text-[#6B7280]">Parking Charges (annual)</span>
+                                                        <span className="font-semibold text-[#1F2937]">
+                                                            {selectedLease.parking_charges ? formatCurrency(selectedLease.parking_charges) : 'N/A'}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Lease Terms - EXPANDED */}
+                                            <div className="bg-white border border-[#E5E7EB] rounded-lg p-2.5 shadow-sm">
+                                                <h3 className="font-semibold text-[#0F3D5C] mb-3 flex items-center gap-2">
+                                                    📅 Lease Terms
+                                                </h3>
+                                                <div className="space-y-2 text-xs">
+                                                    <div className="flex justify-between">
+                                                        <span className="text-[#6B7280]">Commencement</span>
+                                                        <span className="font-semibold text-[#1F2937]">
+                                                            {formatDate(selectedLease.commencement_date)}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex justify-between">
+                                                        <span className="text-[#6B7280]">Expiration</span>
+                                                        <span className="font-semibold text-[#1F2937]">
+                                                            {formatDate(selectedLease.expiration_date)}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex justify-between pt-2 border-t border-gray-200">
+                                                        <span className="text-[#6B7280]">Notice Period before Expiry</span>
+                                                        <span className="font-semibold text-[#1F2937]">
+                                                            {selectedLease.notice_period_expiry || 'N/A'}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex justify-between">
+                                                        <span className="text-[#6B7280]">Type of Term</span>
+                                                        <span className="font-semibold text-[#1F2937]">
+                                                            {selectedLease.type_of_term || 'N/A'}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex justify-between">
+                                                        <span className="text-[#6B7280]">Type of Space</span>
+                                                        <span className="font-semibold text-[#1F2937]">
+                                                            {selectedLease.type_of_space || selectedLease.property_use_type || 'N/A'}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex justify-between">
+                                                        <span className="text-[#6B7280]">Renewal Option</span>
+                                                        <span className="font-semibold text-[#1F2937]">
+                                                            {formatBoolean(selectedLease.renewal_option)}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex justify-between">
+                                                        <span className="text-[#6B7280]">Termination Clause</span>
+                                                        <span className="font-semibold text-[#1F2937]">
+                                                            {formatBoolean(selectedLease.termination_clause)}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex justify-between">
+                                                        <span className="text-[#6B7280]">Notice for Default</span>
+                                                        <span className="font-semibold text-[#1F2937]">
+                                                            {selectedLease.notice_period_default || 'N/A'}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex justify-between">
+                                                        <span className="text-[#6B7280]">Notice for Breaking Covenants</span>
+                                                        <span className="font-semibold text-[#1F2937]">
+                                                            {selectedLease.notice_period_covenants || 'N/A'}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Comments Section - 2 COLUMNS WIDE */}
+                                        <div className="col-span-2 bg-white border border-[#E5E7EB] rounded-lg p-2.5 shadow-sm">
+                                            <h3 className="font-semibold text-[#0F3D5C] mb-3 flex items-center gap-2">
+                                                💬 Comments
+                                            </h3>
+                                            <p className="text-sm text-[#1F2937] leading-relaxed">
+                                                {selectedLease.lease_summary || selectedLease.extraction_notes?.join(' ') || 'No summary available. This section will display an AI-generated 150-word lease summary highlighting key terms, notable clauses, and important business points.'}
+                                            </p>
+                                        </div>
+
+                                        {/* Document ID */}
+                                        <div className="text-center text-xs text-[#9CA3AF] pt-2">
+                                            Document ID: <span className="font-mono text-[#6B7280]">{selectedLease.document_id}</span>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<LeaseDigitizerV2 />, document.getElementById('root'));
+    </script>
+</body>
+</html>
