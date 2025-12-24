@@ -190,7 +190,7 @@ This is a portfolio project demonstrating production-grade AI engineering practi
 
 ## 📄 License
 
-MIT License - See LICENSE file for details
+See LICENSE file for details
 
 ## 👤 Author
 
